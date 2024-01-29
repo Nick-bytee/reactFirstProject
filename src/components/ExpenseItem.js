@@ -1,14 +1,15 @@
 import "./ExpenseItem.css";
+import ExpenseDetails from "./ExpenseDetails";
 
 function ExpenseItem(expense) {
   return (
     <div className="expense-item">
       <div>{expense.date}</div>
-      <div className="expense-item__description">
-        <h2>{expense.title}</h2>
-        <h2>{expense.location}</h2>
-        <div className="expense-item__price">${expense.amount}</div>
-      </div>
+      <ExpenseDetails
+        title={expense.title}
+        location={expense.location}
+        price={expense.price}
+      ></ExpenseDetails>
     </div>
   );
 }
