@@ -1,5 +1,4 @@
-import "./App.css";
-import ExpenseItem from "./components/ExpenseItem";
+import ExpenseItem from "./components/Expenses/ExpenseItem";
 
 function App() {
   const expenses = [
@@ -36,18 +35,16 @@ function App() {
   ];
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Lets Get Started</h1>
-        {expenses.map((expense, index) => (
-          <ExpenseItem
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-            location={expense.location}
-          />
-        ))}
-      </header>
+    <div>
+      <h1>Lets Get Started</h1>
+      {expenses.map((expense, index) => (
+        <ExpenseItem
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+          location={expense.location}
+        />
+      ))}
     </div>
   );
 }
