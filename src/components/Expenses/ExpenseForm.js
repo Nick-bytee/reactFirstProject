@@ -2,14 +2,20 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
-  const [formData, setData] = useState({
-    title: "",
-    amount: "",
-    date: "",
-  });
+  const [enteredTitle, setTitle] = useState("");
+  const [enteredAmount, setAmount] = useState("");
+  const [enteredDate, setDate] = useState("");
 
-  const formHandler = (e) => {
-    console.log(e.target.value);
+  const amountHandler = (e) => {
+    setAmount(e.target.value);
+  };
+
+  const titleHandler = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const dateHandler = (e) => {
+    setDate(e.target.value);
   };
 
   const clickHandler = (e) => {
@@ -26,21 +32,21 @@ const ExpenseForm = () => {
               className="titleInput"
               type="text"
               placeholder="enter title"
-              onChange={formHandler}
+              onChange={titleHandler}
             />
           </div>
           <div className="expenseinput">
             <input
               type="text"
               placeholder="enter amount"
-              onChange={formHandler}
+              onChange={amountHandler}
             />
           </div>
           <div className="expenseinput">
             <input
               type="date"
               placeholder="enter date"
-              onChange={formHandler}
+              onChange={dateHandler}
             />
           </div>
           <div>
