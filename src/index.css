@@ -2,6 +2,8 @@
 
 * {
     box-sizing: border-box;
+    width: auto;
+    height: auto;
 }
 
 html {
@@ -10,5 +12,13 @@ html {
 
 body {
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #3f3f3f;
+}
+
+#root {
+    text-align: center;
+    /* Center the content horizontally */
 }
