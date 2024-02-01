@@ -20,12 +20,12 @@ const ExpenseForm = () => {
 
   const clickHandler = (e) => {
     e.preventDefault();
-    console.log(formData);
+    console.log(enteredTitle, enteredAmount, enteredDate);
   };
 
   return (
     <div>
-      <form>
+      <form onSubmit={clickHandler}>
         <div className="expenseForm">
           <div className="expenseinput">
             <input
@@ -50,9 +50,7 @@ const ExpenseForm = () => {
             />
           </div>
           <div>
-            <button className="submitButton" onChange={clickHandler}>
-              Add
-            </button>
+            <button className="submitButton">Add</button>
           </div>
         </div>
       </form>
