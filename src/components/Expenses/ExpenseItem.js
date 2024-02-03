@@ -3,13 +3,11 @@ import ExpenseDetails from "./ExpenseDetails";
 import ExpenseDate from "./ExpenseDate";
 import React, { useState } from "react";
 
-const clickHandler = () => {
-  console.log("item Deleted");
-};
-
 const ExpenseItem = (expense) => {
   const [title, setTitle] = useState(expense.title);
   const [amount, setAmount] = useState(expense.amount);
+
+  console.log(amount);
 
   const amountClickHandler = () => {
     setAmount(100);

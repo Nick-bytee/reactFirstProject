@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import ExpenseForm from "./ExpenseForm";
 
-const AddExpense = () => {
+const AddExpense = (props) => {
+  const expenseDataHandler = (expense) => {
+    const newUserData = { ...expense, id: Math.random.toString };
+    props.getExpenseData(newUserData);
+  };
+
   return (
     <div>
-      <ExpenseForm></ExpenseForm>
+      <ExpenseForm onSaveExpenseData={expenseDataHandler} />-
     </div>
   );
 };
