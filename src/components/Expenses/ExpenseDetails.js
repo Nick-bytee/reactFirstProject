@@ -1,4 +1,4 @@
-import "./ExpenseDetails.css";
+import "../css/ExpenseDetails.css";
 
 const ExpenseDetails = (props) => {
   let title = props.title;

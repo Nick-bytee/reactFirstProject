@@ -41,6 +41,25 @@ function App() {
     setExpenseData(filteredArray);
   };
 
+  let filteredExpenseData = <h3>No Expenses Found</h3>;
+
+  if (expenseData.length > 0) {
+    filteredExpenseData = expenseData.map((expense, index) => (
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+        location={expense.location}
+      />
+    ));
+    if (filteredExpenseData.length === 1) {
+      filteredExpenseData.push(
+        <h3>Only single Expense here. Please add more...</h3>
+      );
+    }
+  }
+
   return (
     <div id="root">
       <h1>Expense Tracker</h1>
@@ -49,15 +68,7 @@ function App() {
         onChangeFilter={filterChangeHandler}
       />
       <AddExpense getExpenseData={expenseDataHandler} />
-      {expenseData.map((expense, index) => (
-        <ExpenseItem
-          key={expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date}
-          location={expense.location}
-        />
-      ))}
+      {filteredExpenseData}
     </div>
   );
 }
