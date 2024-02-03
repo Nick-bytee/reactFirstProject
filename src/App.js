@@ -12,25 +12,38 @@ function App() {
       date: "2024-01-15",
       location: "Supermarket A",
     },
+    {
+      id: 12,
+      title: "Fuel",
+      amount: "90.00",
+      date: "2022-01-15",
+      location: "Supermarket A",
+    },
   ];
 
   const [expenseData, setExpenseData] = useState(expenses);
 
   const expenseDataHandler = (expense) => {
     setExpenseData((prevExpenses) => {
-      return [...prevExpenses, expense];
+      return [expense, ...prevExpenses];
     });
   };
 
-  const [filteredYear, setFilteredYear] = useState("2024");
+  const [filteredYear, setFilteredYear] = useState("select");
 
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
+
+    const filteredArray = expenses.filter((expense) => {
+      console.log(expense.date.split("-")[0], selectedYear);
+      return expense.date.split("-")[0] === selectedYear;
+    });
+    setExpenseData(filteredArray);
   };
 
   return (
     <div id="root">
-      <h1>Lets Get Started</h1>
+      <h1>Expense Tracker</h1>
       <ExpensesFilter
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}

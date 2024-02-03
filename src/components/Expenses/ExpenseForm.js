@@ -30,7 +30,7 @@ const ExpenseForm = (props) => {
       title: enteredTitle,
       amount: enteredAmount,
       location: enteredPlace,
-      date: new Date(enteredDate).toISOString(),
+      date: new Date(enteredDate).toISOString().split("T")[0],
     };
 
     props.onSaveExpenseData(expenseData);
