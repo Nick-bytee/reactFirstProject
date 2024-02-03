@@ -40,7 +40,17 @@ const ExpenseForm = (props) => {
     setPlace("");
   };
 
-  return (
+  const [showForm, setShowForm] = useState(false);
+
+  const handleButtonClick = (e) => {
+    setShowForm(true);
+  };
+
+  const handleCancelButtonClick = () => {
+    setShowForm(false);
+  };
+
+  let form = (
     <div>
       <form onSubmit={submitHandler}>
         <div className="expenseForm">
@@ -78,12 +88,33 @@ const ExpenseForm = (props) => {
             />
           </div>
           <div>
-            <button className="submitButton">Add</button>
+            <button
+              type="button"
+              className="submitButton"
+              onClick={handleCancelButtonClick}
+            >
+              Cancel
+            </button>
+            <button type="submit" className="submitButton">
+              Add
+            </button>
           </div>
         </div>
       </form>
     </div>
   );
+
+  if (!showForm) {
+    form = (
+      <div>
+        <button className="submitButton" onClick={handleButtonClick}>
+          Add New Expense
+        </button>
+      </div>
+    );
+  }
+
+  return form;
 };
 
 export default ExpenseForm;
