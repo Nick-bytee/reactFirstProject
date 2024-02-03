@@ -2,6 +2,7 @@ import "./ExpenseItem.css";
 import ExpenseDetails from "./ExpenseDetails";
 import ExpenseDate from "./ExpenseDate";
 import React, { useState } from "react";
+import ExpensesFilter from "./ExpenseFilter";
 
 const ExpenseItem = (expense) => {
   const [title, setTitle] = useState(expense.title);
